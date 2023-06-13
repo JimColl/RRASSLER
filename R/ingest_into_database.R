@@ -46,7 +46,6 @@
 #' @importFrom arrow write_parquet
 #' @importFrom data.table as.data.table data.table rbindlist fwrite
 #' @importFrom holyhull holyhull
-#' @importFrom units units
 
 ingest_into_database <- function(path_to_ras_dbase,
                                  top_of_dir_to_scrape,
@@ -56,31 +55,6 @@ ingest_into_database <- function(path_to_ras_dbase,
                                  quiet=TRUE,
                                  overwrite=FALSE,
                                  refresh=TRUE) {
-  # sinew::moga(file.path(getwd(),"R/ingest_into_database.R"),overwrite = TRUE)
-  # devtools::document()
-  # pkgdown::build_site(new_process=TRUE)
-  #
-  # devtools::load_all()
-  #
-  # path_to_ras_dbase="/home/rstudio/g/data/ras_dbase"
-  # top_of_dir_to_scrape="/home/rstudio/g/Dropbox/root/projects/floodmapping/methods/ras2fim/sample_data"
-  # code_to_place_in_source="ras2fim_test_data"
-  # proj_overwrite="EPSG:26915"
-
-  # top_of_dir_to_scrape="/home/rstudio/g/data/raw/BLE/FEMA/12090301/12090301_Models/Model/Alum Creek-Colorado River/ALUM 006"
-  # code_to_place_in_source="FEMA R6"
-  # proj_overwrite="EPSG:2277"
-
-  # RRASSLER::ingest_into_database(path_to_ras_dbase="/home/rstudio/g/data/ras_dbase",top_of_dir_to_scrape="/home/rstudio/g/data/BLE/fema/12090301/12090301_Models",
-  #                               code_to_place_in_source="FEMA R6",proj_overwrite="EPSG:2277",vdat_trans=FALSE,quiet=FALSE,overwrite=TRUE,refresh=TRUE)
-  # path_to_ras_dbase="/home/rstudio/g/data/ras_dbase"
-  # top_of_dir_to_scrape="/home/rstudio/g/data/raw/BLE/FEMA/12090301/12090301_Models"
-  # code_to_place_in_source="FEMA R6"
-  # proj_overwrite="EPSG:2277"
-  # vdata_trans=FALSE
-  # quiet=FALSE
-  # overwrite=TRUE
-  # refresh=TRUE
 
   ## -- Start --
   fn_time_start <- Sys.time()
@@ -319,7 +293,7 @@ ingest_into_database <- function(path_to_ras_dbase,
   }
 
   runtime <- Sys.time() - fn_time_start
-  units::units(runtime) <- "mins"
+  units(runtime) <- "mins"
   print(paste("RAS Library appended in",round(runtime, digits = 2),"minutes"))
 
   return(TRUE)
