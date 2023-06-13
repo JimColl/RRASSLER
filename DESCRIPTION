@@ -1,9 +1,11 @@
 Package: RRASSLER
 Title: R based HEC-RAS model accounting wrestler
 Version: 0.0.1
-Authors@R: c(person(given = "Jim", family = "Coll", role = c("aut", "cre")),
-             person(given = "Mike", family = "Johnson", role = c("aut")),
-             person(given = "Laura", family = "Keys", role = c("aut")),
+Authors@R: c(person(given = "Jim", family = "Coll", 
+                    role = c("aut", "cre"),
+                    email = "jamesmcoll@gmail.com"),
+             person(given = "Mike", family = "Johnson", role = "aut"),
+             person(given = "Laura", family = "Keys", role = "aut"),
       person("NOAA", role = c("fnd")),
       person("Lynker", role = c("fnd")))
 Description: A bottoms up approach to walking CONUS scale applications back to the spesific point, cross section, and HEC-RAS model they were sourced from.  Still in alpha dont use this.
