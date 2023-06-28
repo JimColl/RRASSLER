@@ -1,5 +1,3 @@
-Z:/Dropbox/root/projects/RRASSLER/RRASSLER/R/FrankenFIM_scrape_and_unpack_ble.R="17B7B56B"
-Z:/Dropbox/root/projects/RRASSLER/RRASSLER/R/ingest_FEMA6_BLE.R="4F157445"
-Z:/Dropbox/root/projects/RRASSLER/RRASSLER/R/ingest_into_database.R="060715B1"
-Z:/Dropbox/root/projects/RRASSLER/RRASSLER/R/load_catalog_csv_as_DT.R="BBC8018A"
-Z:/Dropbox/root/projects/RRASSLER/RRASSLER/R/refresh_master_files.R="5D8DDFC8"
+/Users/mjohnson/github/RRASSLER/.Rbuildignore="9797ADE8"
+/Users/mjohnson/github/RRASSLER/.gitignore="40A95291"
+/Users/mjohnson/github/RRASSLER/LICENSE.txt="B0680FD7"

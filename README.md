@@ -17,8 +17,10 @@ There are few hydraulic models as prolific as HEC-RAS, and since it's first name
 
 ## Ingest logic
 
-In order to wrassle that friction, RRASSLER has a few theoretical value judgments that need to be described in order to help understand why it does what it does and how to use it properly.  RRASSLER is focused on making the critical data objects needed to run a HEC-RAS model readily available and accountable as a model (as opposed to as individual data points or large clusters of otherwise "vistigal" data; and with an emphasis on the particular geometric realization of the model).  It is also designed to be a standardized and centralized source of models, regardless of their origin.  For that reason, RRASSLER expects to operate within it's own controlled directory, or "HECRAS_model_catalog".   Users first download and unpack desired models into a temporary location, and then point RRASSLER at that directory and the place which you want to store your catalog.  It will:  
+In order to wrassle that friction, RRASSLER has a few theoretical value judgments that need to be described in order to help understand why it does what it does and how to use it properly.  RRASSLER is focused on making the critical data objects needed to run a HEC-RAS model readily available and accountable as a model (as opposed to as individual data points or large clusters of otherwise "vistigal" data; and with an emphasis on the particular geometric realization of the model).  It is also designed to be a standardized and centralized source of models, regardless of their origin.  For that reason, RRASSLER expects to operate within it's own controlled directory, or "HECRAS_model_catalog".   Users first download and unpack desired models into a temporary location, and then point RRASSLER at that directory and the place which you want to store your catalog.  It will: 
+
 1) Scrape the entire directory structure for any HEC-RAS model projects
+
 2) for each geometric realization of that model (variation of .g##), grab all relevant HEC-RAS related files defined as:  
    - .g## &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Geometry definitions  
    - .prj &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Projection (can be non-standard proj4 string defined file)  
@@ -32,9 +34,13 @@ In order to wrassle that friction, RRASSLER has a few theoretical value judgment
    - .x## &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # run file for unsteady flow  
    - .dss &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Data  
    - .rasmap &nbsp;&nbsp; # output plan  
-3) Attempt to place the model in space.  This is done by attempting to parse the g** and g**.hdf files, guess at projections, and pulling and collating the data into an xid-xyz table.  
+   
+3) Attempt to place the model in space.  This is done by attempting to parse the g** and g**.hdf files, guess at projections, and pulling and collating the data into an xid-xyz table. 
+
 4) Using that extracted geometry, attempt to create a model footprint (hull).  If that can be constructed, the model was assumed to be correctly placed in space.  The relevant model files are copied to the uniquely parsed "final_model_name_key" folder under the _/models/_ folder.  
+
 5) If the creation of the model hull errors out, the model is placed in the _/models/_unprocessed_ folder for further investigation, correction, and rewrassling.  
+
 6) After all iterations of files are done, RRASSLER will (re)generate a unified source for model footprints, cross sections, and points (now in spatial form) from the HEC-RAS model, and pointers back to the copied source data which remains unaltered.  
 
 ## Installation
